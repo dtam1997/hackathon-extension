@@ -38,7 +38,7 @@ const pirateQuotes = [
   "This Shot Is Not Meant For You.",
 ];
 
-const quotes = shrekQuotes;
+let quotes = shrekQuotes;
 
 
 const quoteBox = document.createElement("div");
@@ -92,17 +92,19 @@ function exitQuote () {
 //     sound.play();
 // })
 
-shrekFace.style.onclick = 'clicked()';
-
+// shrekFace.style.onclick = function() {
+//   clicked();
+// }
 function clicked() {
-    document.querySelector('#shrekFace').style.content =  "url(https://p.kindpng.com/picc/s/156-1569003_jack-sparrow-transparent-png-png-download.png";
-    quotes = pirateQuotes;
+  document.querySelector('#shrekFace').style.content =  "url(https://p.kindpng.com/picc/s/156-1569003_jack-sparrow-transparent-png-png-download.png";
+  quotes = pirateQuotes;
+  console.log("Quotes should be changed to pirates");
 }
 // body.addEventListener('keydown', (e) => {
 //   if (e.code === 'ArrowDown') {
 //     body.querySelector('#shrekFace').style.content =  "url(https://p.kindpng.com/picc/s/156-1569003_jack-sparrow-transparent-png-png-download.png";
 //   }
 // });
-shrekFace.addEventListener('click', function(){
+document.querySelector('#shrekFace').addEventListener('click', function(e){
   clicked();
 });
