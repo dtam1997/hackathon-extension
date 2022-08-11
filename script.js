@@ -8,6 +8,29 @@ image.id = 'shrekFace';
 const shrekFace = document.querySelector('#shrekFace');
 body.appendChild(image);
 
+let headlines;
+let url = 'https://api.nytimes.com/svc/archive/v1/2022/8.json?api-key=taDkBrrRxBCYhVuxzoa3MXX02e1Rtg6u';
+const messages = fetch(url, {
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json',
+    'mode': 'no-cors',
+    'Access-Control-Allow-Origin': '*',
+  }
+})
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+    console.log('see me')
+    headlines = data;
+  })
+  .catch((err) => {
+    console.log('I have an error');
+    console.log('Error: ', err)
+  });
+
+console.log("This is headlines");
+console.log(headlines)
 
 const shrekQuotes = [
   "Get off of me swamp!",
@@ -56,7 +79,7 @@ body.appendChild(quote);
 setTimeout(enterQuote, 2000);
 
 
-function enterQuote () {
+function enterQuote() {
   let opacity = Number(body.querySelector('#quote').style.opacity);
   if (opacity < 1) {
     opacity += 0.1;
@@ -66,7 +89,7 @@ function enterQuote () {
   } else setTimeout(exitQuote, 4000);
 }
 
-function exitQuote () {
+function exitQuote() {
   let opacity = Number(body.querySelector('#quote').style.opacity);
   if (opacity > 0) {
     opacity -= 0.1;
@@ -96,7 +119,7 @@ function exitQuote () {
 //   clicked();
 // }
 function clicked() {
-  document.querySelector('#shrekFace').style.content =  "url(https://p.kindpng.com/picc/s/156-1569003_jack-sparrow-transparent-png-png-download.png";
+  document.querySelector('#shrekFace').style.content = "url(https://p.kindpng.com/picc/s/156-1569003_jack-sparrow-transparent-png-png-download.png";
   quotes = pirateQuotes;
   console.log("Quotes should be changed to pirates");
 }
@@ -105,6 +128,6 @@ function clicked() {
 //     body.querySelector('#shrekFace').style.content =  "url(https://p.kindpng.com/picc/s/156-1569003_jack-sparrow-transparent-png-png-download.png";
 //   }
 // });
-document.querySelector('#shrekFace').addEventListener('click', function(e){
+document.querySelector('#shrekFace').addEventListener('click', function (e) {
   clicked();
 });
