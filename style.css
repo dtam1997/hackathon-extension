@@ -7,6 +7,7 @@
   bottom: 40px;
   left: 140px;
   z-index: 1000;
+  cursor:pointer;
   content: url("https://pngimg.com/uploads/shrek/small/shrek_PNG6.png");
 }
 

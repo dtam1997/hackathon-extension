@@ -5,11 +5,11 @@ const body = document.querySelector('body');
 
 const image = document.createElement("img");
 image.id = 'shrekFace';
-console.log()
+const shrekFace = document.querySelector('#shrekFace');
 body.appendChild(image);
 
 
-const quotes = [
+const shrekQuotes = [
   "Get off of me swamp!",
   "Donkayyyy!",
   "Well it\'s no wonder you don\'t have any friends.",
@@ -25,6 +25,20 @@ const quotes = [
 ];
 
 
+const pirateQuotes = [
+  "This is the day you will always remember as the day you almost caught Captain Jack Sparrow.",
+  "Not all treasure is gold and silver mate.",
+  "I’m Captain Jack Sparrow. Savvy",
+  "Face is familiar, have I threatened you before?",
+  "Did everyone see that? Because I will not be doing it again.",
+  "Why is the rum always gone?",
+  "I've Got A Jar Of Dirt!",
+  "But You Have Heard Of Me.",
+  "If You Were Waiting For The Opportune Moment, That Was It.",
+  "This Shot Is Not Meant For You.",
+];
+
+const quotes = shrekQuotes;
 
 
 const quoteBox = document.createElement("div");
@@ -37,11 +51,9 @@ quote.id = 'quote';
 quote.innerHTML = quotes[Math.floor(Math.random() * quotes.length)];
 
 body.appendChild(quote);
+//body.querySelector('#shrekFace').style.content =  "url(https://p.kindpng.com/picc/s/156-1569003_jack-sparrow-transparent-png-png-download.png";
 
-// setTimeout(() => body.querySelector("#quote").innerHTML = quotes[Math.floor(Math.random() * quotes.length)],  4000);
-// setTimeout(() => body.querySelector("#quote").innerHTML = quotes[Math.floor(Math.random() * quotes.length)],  4000);
 setTimeout(enterQuote, 2000);
-
 
 
 function enterQuote () {
@@ -68,7 +80,6 @@ function exitQuote () {
   }
 }
 
-
 //document.write('<audio id="player" src="" >');
 //document.getElementById('player').play();
 
@@ -81,13 +92,17 @@ function exitQuote () {
 //     sound.play();
 // })
 
+shrekFace.style.onclick = 'clicked()';
 
-
+function clicked() {
+    document.querySelector('#shrekFace').style.content =  "url(https://p.kindpng.com/picc/s/156-1569003_jack-sparrow-transparent-png-png-download.png";
+    quotes = pirateQuotes;
+}
 // body.addEventListener('keydown', (e) => {
 //   if (e.code === 'ArrowDown') {
-//     console.log('pressed down');
-//     head.currentDirection = 'down';
-//     body.querySelector('#shrekFace').style.content =  "url(https://p.kindpng.com/picc/s/156-1569003_jack-sparrow-transparent-png-png-download.png");
+//     body.querySelector('#shrekFace').style.content =  "url(https://p.kindpng.com/picc/s/156-1569003_jack-sparrow-transparent-png-png-download.png";
 //   }
 // });
-
+shrekFace.addEventListener('click', function(){
+  clicked();
+});
