@@ -1,7 +1,17 @@
 {
-    "name": "Getting Started Example",
-    "description": "Build an Extension!",
-    "version": "1.0",
-    "manifest_version": 3
+  "name": "Shrippy",
+  "description": "Browse with your very own Shrek!",
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions": [
+    "activeTab"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://*/*"],
+      "css": ["style.css"],
+      "js": ["script.js"]
+    }
+  ]
 }
   
